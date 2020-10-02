@@ -204,24 +204,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2039899861 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7837841486122854631, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7837841487625342514}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2039899862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039899861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9133d75f9a84184c9f1a04b120c9a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7837841487625342514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,42 +211,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2675602376310574063, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675602376310574063, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675602376310574063, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4891172746487107860, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3f6643349d5ee5b40be38dd21e3d347e,
-        type: 3}
-    - target: {fileID: 4891172746487107860, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4891172746487107860, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4891172746487107860, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7837841486122854628, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -334,6 +280,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9036982704328028040, guid: a4141dece1d450541b7e06db00937362,
+        type: 3}
+      propertyPath: xradius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9036982704328028040, guid: a4141dece1d450541b7e06db00937362,
+        type: 3}
+      propertyPath: yradius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9036982704328028041, guid: a4141dece1d450541b7e06db00937362,
         type: 3}
       propertyPath: m_LocalPosition.x

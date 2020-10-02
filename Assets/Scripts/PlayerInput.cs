@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerScript))]
 public class PlayerInput : MonoBehaviour
 {
+    //Instance of PlayerScript. Needs to also be attached to player
+    private PlayerScript ps;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        ps = gameObject.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -15,7 +19,8 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Release");
+            ps.FlipIsOrbited();
+            Debug.Log(ps.GetIsOrbited());
         }
     }
 }
