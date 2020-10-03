@@ -27,7 +27,7 @@ public class GameSpeed : MonoBehaviour
 
     private void SetGameSpeed()
     {
-        gameSpeed = Mathf.Clamp(gameSpeed, 0.5f, 16f);
+        gameSpeed = Mathf.Clamp(gameSpeed, 0.5f, 8f);
         Time.timeScale = gameSpeed;
     }
 }

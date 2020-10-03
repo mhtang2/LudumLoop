@@ -145,6 +145,8 @@ MonoBehaviour:
   mass: 1
   vi: {x: 0, y: 5, z: 0}
   G: 1
+  completedOrbits: 0
+  test: 0
 --- !u!50 &4125091859357167690
 Rigidbody2D:
   serializedVersion: 4
@@ -222,7 +224,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 10
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
