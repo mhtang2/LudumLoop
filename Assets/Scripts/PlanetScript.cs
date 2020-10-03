@@ -10,4 +10,16 @@ public class PlanetScript : MonoBehaviour
     {
 
     }
+
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0)) {
+            // Whatever you want it to do.
+            mass += 10;
+        }
+        if (Input.GetMouseButtonDown(1)) {
+            // Whatever you want it to do.
+            mass -= 10;
+        }
+    }
 }

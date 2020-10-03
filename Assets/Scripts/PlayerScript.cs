@@ -16,15 +16,23 @@ public class PlayerScript : MonoBehaviour
     private Vector3 v;
     private Vector2 rocketVelocity;
     private ArrayList orbitingPlanets = new ArrayList();
+    private GameObject[] planets;
+
     void Start()
     {
         v = vi;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        planets = GameObject.FindGameObjectsWithTag("Planet");
+        foreach (GameObject planet in planets)
+        {
+            orbitingPlanets.Add(planet.GetComponent<PlanetScript>());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKey(KeyCode.Space))
         {
             rocketVelocity = (transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition)).normalized * 20;
@@ -47,12 +55,13 @@ public class PlayerScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        orbitingPlanets.Add(collision.gameObject.GetComponent<PlanetScript>());
+        //orbitingPlanets.Add(collision.gameObject.GetComponent<PlanetScript>());
+        Destroy(gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        orbitingPlanets.Remove(collision.gameObject.GetComponent<PlanetScript>());
+        //orbitingPlanets.Remove(collision.gameObject.GetComponent<PlanetScript>());
     }
     public void FlipIsOrbited()
     {

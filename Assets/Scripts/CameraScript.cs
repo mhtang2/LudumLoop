@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public float smoothSpeed = 0.125f;
+    public float smoothSpeed = 0.001f;
 
     private GameObject player;
     private Transform target;
@@ -23,7 +23,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.SmoothDamp(transform.position, player.transform.position, ref velocity, smoothSpeed, 500000000);
+        transform.position = Vector2.SmoothDamp(transform.position, player.transform.position, ref velocity, smoothSpeed);
         transform.position += offset;
     }
 }
