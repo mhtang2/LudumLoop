@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameSpeed : MonoBehaviour
 {
-    int gameSpeed;
+    float gameSpeed;
 
     // Start is called before the first frame update
     void Start()
