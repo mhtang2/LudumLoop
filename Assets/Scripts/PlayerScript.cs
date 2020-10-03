@@ -13,15 +13,11 @@ public class PlayerScript : MonoBehaviour
     public Vector3 vi;
     public float G;
     // Start is called before the first frame update
-    private float GM;
     private Vector3 v;
     private ArrayList orbitingPlanets = new ArrayList();
     void Start()
     {
         v = vi;
-        GM =G * planet.mass;
-        Debug.Log(Mathf.Sqrt(GM / transform.position.magnitude));
-        
     }
 
     // Update is called once per frame
