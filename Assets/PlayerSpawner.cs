@@ -20,15 +20,18 @@ public class PlayerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tick += Time.deltaTime;
-        if (tick > delay)
+        if (MainGameScript.Instance.IsStartSpawn())
         {
-            tick = 0;
-            Instantiate(planetToSpawn, transform).transform.localPosition = new Vector3(0, 0, 0);
-            amountThrown++;
-            if (amountThrown >= amount)
+            tick += Time.deltaTime;
+            if (tick > delay)
             {
-                enabled = false;
+                tick = 0;
+                Instantiate(planetToSpawn, transform).transform.localPosition = new Vector3(0, 0, 0);
+                amountThrown++;
+                if (amountThrown >= amount)
+                {
+                    enabled = false;
+                }
             }
         }
     }

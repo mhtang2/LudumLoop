@@ -16,12 +16,18 @@ public class GameSpeed : MonoBehaviour
     public void Increase()
     {
         gameSpeed *= 2;
-        Time.timeScale = gameSpeed;
+        SetGameSpeed();
     }
 
     public void Decrease()
     {
         gameSpeed /= 2;
+        SetGameSpeed();
+    }
+
+    private void SetGameSpeed()
+    {
+        gameSpeed = Mathf.Clamp(gameSpeed, 0.5f, 16f);
         Time.timeScale = gameSpeed;
     }
 }
