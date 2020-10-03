@@ -23,17 +23,21 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 a=Vector3.zero;
-        foreach (PlanetScript planet in orbitingPlanets) { 
+       
+
+    }
+    private void FixedUpdate()
+    {
+        Vector3 a = Vector3.zero;
+        foreach (PlanetScript planet in orbitingPlanets)
+        {
             Vector3 r = transform.position - planet.transform.position;
-            a += -G*planet.mass / (r.magnitude*r.magnitude) * r.normalized;
+            a += -G * planet.mass / (r.magnitude * r.magnitude) * r.normalized;
         }
         //Debug.Log(r.magnitude);
         v += Time.deltaTime * a;
         transform.position = transform.position + v * Time.deltaTime;
-
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         orbitingPlanets.Add(collision.gameObject.GetComponent<PlanetScript>());
