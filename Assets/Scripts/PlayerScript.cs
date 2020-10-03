@@ -13,8 +13,9 @@ public class PlayerScript : MonoBehaviour
     public Vector3 vi;
     public float G;
     // Start is called before the first frame update
-    float GM;
+    private float GM;
     private Vector3 v;
+    private ArrayList orbitingPlanets = new ArrayList();
     void Start()
     {
         v = vi;
@@ -26,20 +27,26 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 r = transform.position;
-        Vector3 a = -GM / (r.magnitude*r.magnitude) * r.normalized;
+        Vector3 a=Vector3.zero;
+        foreach (PlanetScript planet in orbitingPlanets) { 
+            Vector3 r = transform.position - planet.transform.position;
+            a += -G*planet.mass / (r.magnitude*r.magnitude) * r.normalized;
+        }
         //Debug.Log(r.magnitude);
         v += Time.deltaTime * a;
         transform.position = transform.position + v * Time.deltaTime;
 
     }
 
-    void OnCollision2DEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Output the Collider's GameObject's name
-        Debug.Log(collision.collider.name);
+        orbitingPlanets.Add(collision.gameObject.GetComponent<PlanetScript>());
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        orbitingPlanets.Remove(collision.gameObject.GetComponent<PlanetScript>());
+    }
     public void FlipIsOrbited()
     {
         IsOrbited = !IsOrbited;
