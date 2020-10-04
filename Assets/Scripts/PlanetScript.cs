@@ -9,33 +9,39 @@ public class PlanetScript : MonoBehaviour
     public int mass;
     private SpriteRenderer spriteRender;
     private int massLower = 0, massHigher = 200;
-    private float hueHigher = 0.1666f, hueLower = -0.33333f;
+    private float hueLower = 0.666666f, hueHigher = 0.833333f;
+    private float lightLower = 0.22222f, lightHigher = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
         spriteRender = MainSprite.GetComponent<SpriteRenderer>();
+        UpdateColor();
     }
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1)) {
-            // Whatever you want it to do.
-            mass += 10;
-            UpdateColor();
+            if (mass < massHigher)
+            {
+                mass += 10;
+                UpdateColor();
+            }
         }
         if (Input.GetMouseButtonDown(0)) {
-            // Whatever you want it to do.
-            mass -= 10;
-            UpdateColor();
+            if (mass > massLower)
+            {
+                mass -= 10;
+                UpdateColor();
+            }
         }
     }
 
     private void UpdateColor()
     {
         float percentage = ((float)mass - massLower) / (massHigher - massLower);
-        float hue = percentage * (hueHigher-hueLower) + hueLower;
-        hue = hue % 1;
+        float hue = hueHigher - percentage * (hueHigher-hueLower);
+        hue %= 1;
         hue = hue < 0 ? hue + 1 : hue;
-        spriteRender.color = Color.HSVToRGB(hue, 0.5f, 0.75f);
-        Debug.Log(percentage+" "+mass);
+        spriteRender.color = Color.HSVToRGB(hue, 0.5f, lightHigher-percentage*(lightHigher-lightLower));
+        Debug.Log(percentage+" "+mass+" " +hue);
     }
 }
