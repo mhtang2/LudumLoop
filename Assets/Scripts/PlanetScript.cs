@@ -22,6 +22,7 @@ public class PlanetScript : MonoBehaviour
     public int completedOrbits;
     public double test;
     public SpriteRenderer spriteRender;
+    private TrailRenderer trailRender;
     void Start()
     {
         v = vi;
@@ -34,6 +35,8 @@ public class PlanetScript : MonoBehaviour
         }
         // Spawn the orbit calculator for this player
         hasOrbited = new bool[orbitingPlanets.Count];
+        trailRender = GetComponent<TrailRenderer>();
+        UpdateColor();
     }
 
     // Update is called once per frame
@@ -62,7 +65,11 @@ public class PlanetScript : MonoBehaviour
 
     /**Selects random color **/
     public void UpdateColor() {
-        spriteRender.color = Color.HSVToRGB(UnityEngine.Random.Range(0.0f,1.0f),0.5f,0.5f);   
+        float roundedHue = UnityEngine.Mathf.Floor(UnityEngine.Random.Range(0.0f, 12.0f)) / 12;
+        float trueRandomHue = UnityEngine.Random.Range(0.0f, 1.0f);
+        spriteRender.color = Color.HSVToRGB(trueRandomHue,1.0f,1.0f);   
+        trailRender.startColor = Color.HSVToRGB(trueRandomHue, 1.0f, 1.0f);
+        trailRender.endColor = Color.HSVToRGB((trueRandomHue + 0.1666f) % 1, 1.0f, 1.0f);
     }
 
     private void CalculateAngles()
