@@ -29,6 +29,7 @@ public class MainGameScript : MonoBehaviour
         Instance = this;
         starContainer = GameObject.Find("StarIndicator");
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        scoreText.text = score + "/" + goalScore;
     }
 
     public void StartSpawn()
@@ -58,7 +59,7 @@ public class MainGameScript : MonoBehaviour
     }
     public void IncrementScore(int ds) {
         score += ds;
-        scoreText.text = ""+score;
+        scoreText.text = score + "/" + goalScore;
         
         if (score == goalScore)
         {
