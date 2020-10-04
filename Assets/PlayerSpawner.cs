@@ -26,7 +26,9 @@ public class PlayerSpawner : MonoBehaviour
             if (tick > delay)
             {
                 tick = 0;
-                Instantiate(planetToSpawn, transform).transform.localPosition = new Vector3(0, 0, 0);
+                GameObject newPlayer;
+                (newPlayer= Instantiate(planetToSpawn, transform)).transform.localPosition = new Vector3(0, 0, 0);
+                newPlayer.GetComponent<PlanetScript>().UpdateColor();
                 amountThrown++;
                 if (amountThrown >= amount)
                 {

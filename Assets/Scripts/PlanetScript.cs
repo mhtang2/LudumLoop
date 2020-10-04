@@ -20,6 +20,7 @@ public class PlanetScript : MonoBehaviour
 
     public int completedOrbits;
     public double test;
+    public SpriteRenderer spriteRender;
     void Start()
     {
         v = vi;
@@ -56,6 +57,11 @@ public class PlanetScript : MonoBehaviour
         v += Time.deltaTime * a;
         transform.position = transform.position + v * Time.deltaTime;
         CalculateAngles();
+    }
+
+    /**Selects random color **/
+    public void UpdateColor() {
+        spriteRender.color = new Color(255,0,0);    
     }
 
     private void CalculateAngles()
