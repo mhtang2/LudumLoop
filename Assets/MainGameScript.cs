@@ -6,6 +6,7 @@ public class MainGameScript : MonoBehaviour
 {
     // Game Instance Singleton
     public static MainGameScript Instance { get; private set; } = null;
+    private int stars = 0;
     private bool startSpawn = true;
     public int totalMass;
 
@@ -28,5 +29,10 @@ public class MainGameScript : MonoBehaviour
     public bool IsStartSpawn()
     {
         return startSpawn;
+    }
+
+    public void AddStar()
+    {
+        stars++;
     }
 }
