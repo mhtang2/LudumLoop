@@ -100,6 +100,7 @@ public class PlanetScript : MonoBehaviour
     private void OnDestroy()
     {
         Debug.Log("Died");
+        MainGameScript.Instance.KillPlanet();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
