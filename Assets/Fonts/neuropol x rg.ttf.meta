@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 3e7a1268e29c5304287e04a921380b6f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Neuropol X
+  fontNames:
+  - Neuropol X
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e00cde2fd9c9342478d14752fe8c04c0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
