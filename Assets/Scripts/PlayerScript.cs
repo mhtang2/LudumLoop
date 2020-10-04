@@ -87,7 +87,9 @@ public class PlayerScript : MonoBehaviour
         foreach (PlanetDataEntry planet in orbitingPlanets) {
             planet.Angle = 0;
             planet.LastPoint = transform.position;
-        }
+            planet.AngleTargetHigh = Mathf.PI * 2;
+            planet.AngleTargetLow = Mathf.PI * -2;
+}
         completedOrbits++;
         return true;
     }
