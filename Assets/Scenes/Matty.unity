@@ -1915,7 +1915,7 @@ MonoBehaviour:
   planetToSpawn: {fileID: 7837841486122854631, guid: 617c3000f52d8cc4d9ed1b84e986d4e3,
     type: 3}
   delay: 1
-  amount: 5
+  amount: 1
 --- !u!4 &1540409017
 Transform:
   m_ObjectHideFlags: 0
