@@ -10,7 +10,7 @@ public class BlackHoleScript : MonoBehaviour
     private SpriteRenderer spriteRender;
     private int massLower = 0, massHigher = 200;
     private float hueLower = 0.666666f, hueHigher = 0.833333f;
-    private float lightLower = 0.22222f, lightHigher = 0.5f;
+    private float lightLower = 0.2f, lightHigher = 0.6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +41,7 @@ public class BlackHoleScript : MonoBehaviour
         float hue = hueHigher - percentage * (hueHigher-hueLower);
         hue %= 1;
         hue = hue < 0 ? hue + 1 : hue;
-        spriteRender.color = Color.HSVToRGB(hue, 0.5f, lightHigher-percentage*(lightHigher-lightLower));
+        spriteRender.color = Color.HSVToRGB(hue, 1.0f, lightHigher-percentage*(lightHigher-lightLower));
         Debug.Log(percentage+" "+mass+" " +hue);
     }
 }
