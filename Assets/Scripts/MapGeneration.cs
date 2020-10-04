@@ -15,7 +15,7 @@ public class MapGeneration : MonoBehaviour
             float y = Random.Range(-100.0f, 100.0f);
             GameObject temp = Instantiate(planet);
             temp.transform.position = new Vector3(x, y);
-            temp.GetComponent<PlanetScript>().mass = (int) 100;
+            temp.GetComponent<BlackHoleScript>().mass = (int) 100;
         }
     }
 

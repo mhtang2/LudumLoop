@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerScript))]
+[RequireComponent(typeof(PlanetScript))]
 public class PlayerInput : MonoBehaviour
 {
     //Instance of PlayerScript. Needs to also be attached to player
-    private PlayerScript ps;
+    private PlanetScript ps;
 
     // Start is called before the first frame update
     void Start()

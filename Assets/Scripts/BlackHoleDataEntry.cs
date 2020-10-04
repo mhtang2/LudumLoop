@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetDataEntry
+public class BlackHoleDataEntry
 {
     public float Angle { get; set; }
     public float AngleTargetHigh = Mathf.PI * 2;
     public float AngleTargetLow = Mathf.PI * -2;
     public Vector2 LastPoint { get; set; }
-    public PlanetScript TargetPlanet { get; set; }
-    public PlanetDataEntry(float angle, Vector2 lastPoint, PlanetScript targetPlanet)
+    public BlackHoleScript TargetPlanet { get; set; }
+    public BlackHoleDataEntry(float angle, Vector2 lastPoint, BlackHoleScript targetPlanet)
     {
         Angle = angle;
         LastPoint = lastPoint;
