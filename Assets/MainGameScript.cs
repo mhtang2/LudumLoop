@@ -6,7 +6,7 @@ public class MainGameScript : MonoBehaviour
 {
     // Game Instance Singleton
     public static MainGameScript Instance { get; private set; } = null;
-    private bool startSpawn = false;
+    private bool startSpawn = true;
     public int totalMass;
 
     private void Awake()

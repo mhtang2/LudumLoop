@@ -12,16 +12,17 @@ public class PlayerScript : MonoBehaviour
     public int mass;
     public Vector3 vi;
     public float G;
-    // Start is called before the first frame update
     private Vector3 v;
     private Vector2 rocketVelocity;
     private List<PlanetDataEntry> orbitingPlanets = new List<PlanetDataEntry>();
+    private bool[] hasOrbited;
     //Tuple (float score, float degreeStart)
     private GameObject[] planets;
 
     public int completedOrbits;
     public double test;
-
+    public GameObject orbitCalcPrefab;
+    public GameObject orbitCalc;
     void Start()
     {
         v = vi;
@@ -30,8 +31,10 @@ public class PlayerScript : MonoBehaviour
         planets = GameObject.FindGameObjectsWithTag("Planet");
         foreach (GameObject planet in planets)
         {
-            orbitingPlanets.Add(new PlanetDataEntry(0.0, transform.position, planet.GetComponent<PlanetScript>()));
+            orbitingPlanets.Add(new PlanetDataEntry(0.0f, transform.position, planet.GetComponent<PlanetScript>()));
         }
+        // Spawn the orbit calculator for this player
+        hasOrbited = new bool[orbitingPlanets.Count];
     }
 
     // Update is called once per frame
@@ -41,7 +44,7 @@ public class PlayerScript : MonoBehaviour
         {
             rocketVelocity = (transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition)).normalized * 20;
         } else {
-            rocketVelocity = new Vector2();
+            rocketVelocity = Vector2.zero;
         }
     }
     private void FixedUpdate()
@@ -49,35 +52,50 @@ public class PlayerScript : MonoBehaviour
         Vector3 a = Vector3.zero;
         foreach (PlanetDataEntry planet in orbitingPlanets)
         {
-            Vector3 r = transform.position - planet.TargetPlanet.transform.position;
-            a += -G * planet.TargetPlanet.mass / (r.magnitude * r.magnitude) * r.normalized;
+           Vector3 r = transform.position - planet.TargetPlanet.transform.position;
+           a += -G * planet.TargetPlanet.mass / (r.magnitude * r.magnitude) * r.normalized;
         }
         a += (Vector3) rocketVelocity;
-        //Debug.Log(r.magnitude);
         v += Time.deltaTime * a;
         transform.position = transform.position + v * Time.deltaTime;
-        CalculateScore();
+        CalculateAngles();
     }
 
-    private void CalculateScore()
+    private void CalculateAngles()
     {
         for(int i = 0; i < orbitingPlanets.Count; i++)
         {
-            double score = orbitingPlanets[i].Score;
-
-
             Vector2 A = transform.position - orbitingPlanets[i].TargetPlanet.transform.position;
             Vector2 B = orbitingPlanets[i].LastPoint - (Vector2) orbitingPlanets[i].TargetPlanet.transform.position;
-
-            double angleChange = Mathf.Acos(Vector2.Dot(A.normalized, B.normalized));
-
-
-            score += angleChange;
-            orbitingPlanets[i].LastPoint = transform.position;
-            orbitingPlanets[i].Score = score;
-            test = score;
-            completedOrbits = Mathf.Max(completedOrbits, (int) (score / (Mathf.PI * 2)));
+            float angleChange = -Mathf.Asin(Vector3.Cross(A.normalized,B.normalized).z);
+               
+            if (!hasOrbited[i] && orbitingPlanets[i].CheckAndUpdate(angleChange,transform.position) ) {
+                Debug.Log("1 planet orbit");
+                hasOrbited[i] = true;
+                if (HandleFullOrbit()) 
+                     return;
+            }
         }
+    }
+
+    //Fully orbited all planets?
+    private bool HandleFullOrbit() {
+        foreach(bool b in  hasOrbited){
+            if (!b) return false;
+        }
+        hasOrbited = new bool[orbitingPlanets.Count];
+        foreach (PlanetDataEntry planet in orbitingPlanets) {
+            planet.Angle = 0;
+            planet.LastPoint = transform.position;
+        }
+        completedOrbits++;
+        return true;
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(orbitCalc);
+        Debug.Log("Died");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
