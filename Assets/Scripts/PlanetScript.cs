@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -61,7 +62,7 @@ public class PlanetScript : MonoBehaviour
 
     /**Selects random color **/
     public void UpdateColor() {
-        spriteRender.color = new Color(255,0,0);    
+        spriteRender.color = Color.HSVToRGB(UnityEngine.Random.Range(0.0f,1.0f),0.5f,0.5f);   
     }
 
     private void CalculateAngles()
