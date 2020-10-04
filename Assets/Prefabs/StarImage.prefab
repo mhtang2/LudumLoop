@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3798860403624612494}
   - component: {fileID: 3798860403624612493}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: StarImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3f6643349d5ee5b40be38dd21e3d347e, type: 3}
-  m_Color: {r: 1, g: 0.9874471, b: 0.41960788, a: 1}
+  m_Color: {r: 1, g: 0.98823535, b: 0.41960788, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

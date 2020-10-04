@@ -15,6 +15,7 @@ public class GameSpeed : MonoBehaviour
 
     public void Increase()
     {
+        Debug.Log("Test");
         gameSpeed *= 2;
         SetGameSpeed();
     }
