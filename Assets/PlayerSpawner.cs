@@ -37,4 +37,10 @@ public class PlayerSpawner : MonoBehaviour
             }
         }
     }
+
+    public void ResetStartSpawn()
+    {
+        tick = 0;
+        amountThrown = 0;
+    }
 }

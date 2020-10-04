@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainGameScript : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class MainGameScript : MonoBehaviour
     private int stars = 0;
     private bool startSpawn = true;
     public int totalMass;
-    public int totalPlanets;
+    public int totalPlanet;
     private GameObject starContainer;
 
     private void Awake()
@@ -42,10 +43,20 @@ public class MainGameScript : MonoBehaviour
 
     public void KillPlanet()
     {
-        totalPlanets--;
-        if (totalPlanets <= 0)
+        totalPlanet--;
+        if (totalPlanet <= 0)
         {
-            GameObject.Find("Canvas").transform.Find("Panel");
+            GameObject.Find("Canvas").transform.Find("EndGame").gameObject.SetActive(true);
+            for (int i = stars; i < 3; i++)
+            {
+                GameObject.Find("Full Star " + i).SetActive(false);
+                Debug.Log("test");
+            }
         }
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
