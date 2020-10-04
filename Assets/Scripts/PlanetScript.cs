@@ -67,9 +67,17 @@ public class PlanetScript : MonoBehaviour
     public void UpdateColor() {
         float roundedHue = UnityEngine.Mathf.Floor(UnityEngine.Random.Range(0.0f, 12.0f)) / 12;
         float trueRandomHue = UnityEngine.Random.Range(0.0f, 1.0f);
-        spriteRender.color = Color.HSVToRGB(trueRandomHue,1.0f,1.0f);   
-        trailRender.startColor = Color.HSVToRGB(trueRandomHue, 1.0f, 0.8f);
-        trailRender.endColor = Color.HSVToRGB((trueRandomHue + 0.1666f) % 1, 1.0f, 0.8f);
+        spriteRender.color = Color.HSVToRGB(trueRandomHue,1.0f,1.0f);
+
+        Gradient gradient = new Gradient();
+        gradient.mode = GradientMode.Blend;
+        Color trailStart = Color.HSVToRGB(trueRandomHue, 1.0f, 0.8f);
+        Color trailEnd = Color.HSVToRGB((trueRandomHue + 0.1666f) % 1, 1.0f, 0.8f);
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(trailStart, 0.0f), new GradientColorKey(trailEnd, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 0.1f) }
+        );
+        trailRender.colorGradient = gradient;
     }
 
     private void CalculateAngles()
