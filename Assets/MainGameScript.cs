@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainGameScript : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class MainGameScript : MonoBehaviour
     private bool startSpawn = true;
     public int totalMass;
     public int totalPlanet;
+    public int score=0;
+    private Text scoreText;
     private GameObject starContainer;
 
     private void Awake()
@@ -23,6 +26,7 @@ public class MainGameScript : MonoBehaviour
 
         Instance = this;
         starContainer = GameObject.Find("StarIndicator");
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
     public void StartSpawn()
@@ -54,7 +58,10 @@ public class MainGameScript : MonoBehaviour
             }
         }
     }
-
+    public void IncrementScore(int ds) {
+        score += ds;
+        scoreText.text = ""+score;
+    }
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

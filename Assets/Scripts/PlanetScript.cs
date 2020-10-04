@@ -93,7 +93,8 @@ public class PlanetScript : MonoBehaviour
             planet.LastPoint = transform.position;
             planet.AngleTargetHigh = Mathf.PI * 2;
             planet.AngleTargetLow = Mathf.PI * -2;
-}
+        }
+        MainGameScript.Instance.IncrementScore(1);
         completedOrbits++;
         return true;
     }
