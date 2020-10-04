@@ -9,10 +9,12 @@ public class MainGameScript : MonoBehaviour
     // Game Instance Singleton
     public static MainGameScript Instance { get; private set; } = null;
     private int stars = 0;
-    private bool startSpawn = true;
+    private bool startSpawn = false;
     public int totalMass;
     public int totalPlanet;
-    public int score=0;
+    public int goalScore;
+
+    private int score=0;
     private Text scoreText;
     private GameObject starContainer;
 
@@ -50,6 +52,16 @@ public class MainGameScript : MonoBehaviour
         totalPlanet--;
         if (totalPlanet <= 0)
         {
+            //ADD WHAT HAPPENS WHEN LOSE
+
+        }
+    }
+    public void IncrementScore(int ds) {
+        score += ds;
+        scoreText.text = ""+score;
+        
+        if (score == goalScore)
+        {
             GameObject.Find("Canvas").transform.Find("EndGame").gameObject.SetActive(true);
             for (int i = stars; i < 3; i++)
             {
@@ -57,10 +69,6 @@ public class MainGameScript : MonoBehaviour
                 Debug.Log("test");
             }
         }
-    }
-    public void IncrementScore(int ds) {
-        score += ds;
-        scoreText.text = ""+score;
     }
     public void RestartLevel()
     {
