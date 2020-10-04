@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4392415399560694942}
   - component: {fileID: 5549842476101295811}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7837841486122854631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9133d75f9a84184c9f1a04b120c9a6c, type: 3}
+  m_Script: {fileID: 11500000, guid: b75bd624ff711c2418ca56ba0a686aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 0}
@@ -148,8 +148,7 @@ MonoBehaviour:
   G: 1
   completedOrbits: 0
   test: 0
-  orbitCalcPrefab: {fileID: 8625523675430126458, guid: 2d924a9583a5f384c9e93b04886e3910,
-    type: 3}
+  orbitCalcPrefab: {fileID: 0}
   orbitCalc: {fileID: 0}
 --- !u!50 &4125091859357167690
 Rigidbody2D:
