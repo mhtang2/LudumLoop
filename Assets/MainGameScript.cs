@@ -17,7 +17,7 @@ public class MainGameScript : MonoBehaviour
     private int score=0;
     private Text scoreText;
     private GameObject starContainer;
-
+    public GameObject loseScreen;
     private void Awake()
     {
         // if the singleton hasn't been initialized yet
@@ -53,8 +53,7 @@ public class MainGameScript : MonoBehaviour
         totalPlanet--;
         if (totalPlanet <= 0)
         {
-            //ADD WHAT HAPPENS WHEN LOSE
-
+            loseScreen.SetActive(true);
         }
     }
     public void IncrementScore(int ds) {
