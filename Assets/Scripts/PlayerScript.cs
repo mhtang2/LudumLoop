@@ -103,7 +103,15 @@ public class PlayerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //orbitingPlanets.Add(collision.gameObject.GetComponent<PlanetScript>());
-        Destroy(gameObject);
+        if (collision.tag.Equals("Planet"))
+        {
+            Destroy(gameObject);
+        } else if (collision.tag.Equals("Star"))
+        {
+            MainGameScript.Instance.AddStar();
+            collision.enabled = false;
+            collision.transform.Find("Death").gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
