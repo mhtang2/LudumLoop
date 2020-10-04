@@ -8,7 +8,6 @@ public class PlanetScript : MonoBehaviour
 {
     //Member variables
     private bool IsOrbited;
-    public BlackHoleScript planet;
     public int mass;
     public Vector3 vi;
     public float G;
@@ -21,8 +20,6 @@ public class PlanetScript : MonoBehaviour
 
     public int completedOrbits;
     public double test;
-    public GameObject orbitCalcPrefab;
-    public GameObject orbitCalc;
     void Start()
     {
         v = vi;
