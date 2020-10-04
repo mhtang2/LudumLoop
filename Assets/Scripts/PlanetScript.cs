@@ -93,7 +93,6 @@ public class PlanetScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(orbitCalc);
         Debug.Log("Died");
     }
 
