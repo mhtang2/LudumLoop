@@ -10,9 +10,9 @@ public class PlanetScript : MonoBehaviour
     //Member variables
     private bool IsOrbited;
     public int mass;
-    public Vector3 vi;
+    public Vector2 vi;
     public float G;
-    private Vector3 v;
+    private Vector2 v;
     private Vector2 rocketVelocity;
     private List<BlackHoleDataEntry> orbitingPlanets = new List<BlackHoleDataEntry>();
     private bool[] hasOrbited;
@@ -51,15 +51,15 @@ public class PlanetScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 a = Vector3.zero;
+        Vector2 a = Vector3.zero;
         foreach (BlackHoleDataEntry planet in orbitingPlanets)
         {
-           Vector3 r = transform.position - planet.TargetPlanet.transform.position;
+           Vector2 r = transform.position - planet.TargetPlanet.transform.position;
            a += -G * planet.TargetPlanet.mass / (r.magnitude * r.magnitude) * r.normalized;
         }
-        a += (Vector3) rocketVelocity;
+        a +=  rocketVelocity;
         v += Time.deltaTime * a;
-        transform.position = transform.position + v * Time.deltaTime;
+        transform.position = transform.position + (Vector3)v * Time.deltaTime;
         CalculateAngles();
     }
 
@@ -75,7 +75,7 @@ public class PlanetScript : MonoBehaviour
         Color trailEnd = Color.HSVToRGB((trueRandomHue + 0.1666f) % 1, 1.0f, 0.8f);
         gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(trailStart, 0.0f), new GradientColorKey(trailEnd, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 0.1f) }
+            new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 0.01f) }
         );
         trailRender.colorGradient = gradient;
     }
