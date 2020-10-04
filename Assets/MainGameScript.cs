@@ -9,6 +9,8 @@ public class MainGameScript : MonoBehaviour
     private int stars = 0;
     private bool startSpawn = true;
     public int totalMass;
+    public int totalPlanets;
+    private GameObject starContainer;
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class MainGameScript : MonoBehaviour
         }
 
         Instance = this;
+        starContainer = GameObject.Find("StarIndicator");
     }
 
     public void StartSpawn()
@@ -34,5 +37,15 @@ public class MainGameScript : MonoBehaviour
     public void AddStar()
     {
         stars++;
+        starContainer.transform.Find("Filled" + (stars - 1)).gameObject.SetActive(true);
+    }
+
+    public void KillPlanet()
+    {
+        totalPlanets--;
+        if (totalPlanets <= 0)
+        {
+            GameObject.Find("Canvas").transform.Find("Panel");
+        }
     }
 }

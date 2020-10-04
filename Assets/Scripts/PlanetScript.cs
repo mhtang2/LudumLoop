@@ -8,7 +8,6 @@ public class PlanetScript : MonoBehaviour
 {
     //Member variables
     private bool IsOrbited;
-    public BlackHoleScript planet;
     public int mass;
     public Vector3 vi;
     public float G;
@@ -21,8 +20,7 @@ public class PlanetScript : MonoBehaviour
 
     public int completedOrbits;
     public double test;
-    public GameObject orbitCalcPrefab;
-    public GameObject orbitCalc;
+    public SpriteRenderer spriteRender;
     void Start()
     {
         v = vi;
@@ -61,6 +59,11 @@ public class PlanetScript : MonoBehaviour
         CalculateAngles();
     }
 
+    /**Selects random color **/
+    public void UpdateColor() {
+        spriteRender.color = new Color(255,0,0);    
+    }
+
     private void CalculateAngles()
     {
         for(int i = 0; i < orbitingPlanets.Count; i++)
@@ -96,8 +99,8 @@ public class PlanetScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(orbitCalc);
         Debug.Log("Died");
+        MainGameScript.Instance.KillPlanet();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
