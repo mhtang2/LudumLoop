@@ -64,7 +64,10 @@ public class MainGameScript : MonoBehaviour
         totalPlanet--;
         if (totalPlanet <= 0 && gameOver != true)
         {
-            loseScreen.SetActive(true);
+            if (loseScreen != null)
+            {
+                loseScreen.SetActive(true);
+            }       
             gameOver = true;
         }
     }
@@ -81,7 +84,6 @@ public class MainGameScript : MonoBehaviour
             for (int i = stars; i < 3; i++)
             {
                 GameObject.Find("Full Star " + i).SetActive(false);
-                Debug.Log("test");
             }
             gameOver = true;
 
