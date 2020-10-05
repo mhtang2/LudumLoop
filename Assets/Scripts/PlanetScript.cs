@@ -60,6 +60,8 @@ public class PlanetScript : MonoBehaviour
         a +=  rocketVelocity;
         v += Time.deltaTime * a;
         transform.position = transform.position + (Vector3)v * Time.deltaTime;
+        if (transform.position.magnitude > 30)
+            Destroy(gameObject);
         CalculateAngles();
     }
 
