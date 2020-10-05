@@ -18,9 +18,9 @@ public class MainGameScript : MonoBehaviour
     private Text scoreText;
     private bool gameOver = false;
     private GameObject starContainer;
-    public GameObject loseScreen;
-    public GameObject restartButton;
-    public GameObject startButton;
+    private GameObject loseScreen;
+    private GameObject restartButton;
+    private GameObject startButton;
 
     private void Awake()
     {
@@ -34,6 +34,11 @@ public class MainGameScript : MonoBehaviour
         starContainer = GameObject.Find("StarIndicator");
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         scoreText.text = score + "/" + goalScore;
+
+        Transform canvas = GameObject.Find("Canvas").transform;
+        loseScreen = canvas.Find("LoseGame").gameObject;
+        restartButton = canvas.Find("GameUI").Find("Restart").gameObject;
+        startButton = canvas.Find("GameUI").Find("Play").gameObject;
     }
 
     public void StartSpawn()
