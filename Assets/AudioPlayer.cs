@@ -24,12 +24,9 @@ public class AudioPlayer : MonoBehaviour
 
     void Start()
     {
-        float temp = PlayerPrefs.GetFloat("MasterMixerLevel");
-        if (temp != 0)
-        {
-            Debug.Log("Test");
-            audioMixer.SetFloat("Master", temp);
-        }
+        LoadLevels("Master");
+        LoadLevels("SoundEffect");
+        LoadLevels("Music");
         if (audio != null)
         {
             audio.Play();
@@ -47,5 +44,15 @@ public class AudioPlayer : MonoBehaviour
     {
         audio.clip = myMusic[Random.Range(0, myMusic.Length)] as AudioClip;
         audio.Play();
+    }
+
+    private void LoadLevels(string name)
+    {
+        float temp = PlayerPrefs.GetFloat(name + "MixerLevel");
+        if (temp != 0)
+        {
+            Debug.Log("Test");
+            audioMixer.SetFloat(name, temp);
+        }
     }
 }

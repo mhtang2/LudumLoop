@@ -16,7 +16,11 @@ public class ButtonScript : MonoBehaviour
     public void CreditsButton()
     {
         SceneManager.LoadScene("Credits");
+    }
 
+    public void QuitsButton()
+    {
+        Application.Quit();
     }
 
     public void RestartButton()
