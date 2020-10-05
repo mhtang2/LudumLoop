@@ -22,7 +22,9 @@ public class PlanetScript : MonoBehaviour
     public double test;
     public SpriteRenderer spriteRender;
     private TrailRenderer trailRender;
-   
+
+    public AudioClip starSFX;
+    private AudioSource SFXsource;
 
     void Start()
     {
@@ -36,6 +38,7 @@ public class PlanetScript : MonoBehaviour
         // Spawn the orbit calculator for this player
         hasOrbited = new bool[orbitingPlanets.Count];
         trailRender = GetComponent<TrailRenderer>();
+        SFXsource = GetComponent<AudioSource>();
         UpdateColor();
     }
 
@@ -130,6 +133,7 @@ public class PlanetScript : MonoBehaviour
             Destroy(gameObject);
         } else if (collision.tag.Equals("Star"))
         {
+            SFXsource.PlayOneShot(starSFX);
             MainGameScript.Instance.AddStar();
             collision.enabled = false;
             collision.transform.Find("Death").gameObject.SetActive(true);
