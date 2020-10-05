@@ -23,4 +23,10 @@ public class PlayScript : MonoBehaviour
     public void GoBack(string componentTarget) {
         SceneManager.LoadScene(componentTarget);
     }
+
+    public void GoBackLevelSelect(string componentTarget)
+    {
+        PlayerPrefs.SetInt("LevelScrollValue", (int)GameObject.Find("Text").transform.position.x);
+        SceneManager.LoadScene(componentTarget);
+    }
 }

@@ -5,12 +5,18 @@ using UnityEngine.Audio;
 
 public class AudioPlayer : MonoBehaviour
 {
+    public static bool exists = false;
     public Object[] myMusic; // declare this as Object array
     public AudioMixer audioMixer;
     AudioSource audio;
 
     void Awake()
     {
+        if (exists)
+        {
+            Destroy(gameObject);
+        }
+        exists = true;
         audio = GetComponent<AudioSource>();
         playRandomMusic();
         DontDestroyOnLoad(this.gameObject);
@@ -24,7 +30,10 @@ public class AudioPlayer : MonoBehaviour
             Debug.Log("Test");
             audioMixer.SetFloat("Master", temp);
         }
-        audio.Play();
+        if (audio != null)
+        {
+            audio.Play();
+        }
     }
 
     // Update is called once per frame
