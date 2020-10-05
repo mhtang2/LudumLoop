@@ -10,6 +10,7 @@ public class PlayerSpawner : MonoBehaviour
     public int amount;
     public Vector2 thrownVelocity;
     public float spreadDegrees;
+    public bool flip = false;
 
     private float tick;
     private int amountThrown;
@@ -30,7 +31,14 @@ public class PlayerSpawner : MonoBehaviour
         indicator.transform.Rotate(new Vector3(0, 0, 1), Mathf.Rad2Deg * angle);
         tick = delay;
         dtheta = spreadDegrees / (amount-1);
-        newVelocity = RotateVec2(thrownVelocity, spreadDegrees / 2);
+        if (flip)
+        {
+            dtheta *= -1;
+            newVelocity = RotateVec2(thrownVelocity, -spreadDegrees / 2);
+        } else
+        {
+            newVelocity = RotateVec2(thrownVelocity, spreadDegrees / 2);
+        }   
     }
 
     private Vector2 newVelocity;
