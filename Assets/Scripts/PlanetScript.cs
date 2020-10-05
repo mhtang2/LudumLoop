@@ -12,7 +12,7 @@ public class PlanetScript : MonoBehaviour
     public int mass;
     public float G;
     public Vector2 v;
-    private Vector2 rocketVelocity;
+    private Vector2 rocketVelocity = Vector2.zero;
     private List<BlackHoleDataEntry> orbitingPlanets = new List<BlackHoleDataEntry>();
     private bool[] hasOrbited;
     //Tuple (float score, float degreeStart)
@@ -25,7 +25,7 @@ public class PlanetScript : MonoBehaviour
 
     public AudioClip starSFX;
     private AudioSource SFXsource;
-
+    public static float starPitch = 1;
     void Start()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -45,12 +45,12 @@ public class PlanetScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        /**if (Input.GetKey(KeyCode.Space))
         {
             rocketVelocity = (transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition)).normalized * 20;
         } else {
             rocketVelocity = Vector2.zero;
-        }
+        }**/
     }
     private void FixedUpdate()
     {
@@ -133,7 +133,9 @@ public class PlanetScript : MonoBehaviour
             Destroy(gameObject);
         } else if (collision.tag.Equals("Star"))
         {
+            SFXsource.pitch = starPitch;
             SFXsource.PlayOneShot(starSFX);
+            starPitch *=1.25f;
             MainGameScript.Instance.AddStar();
             collision.enabled = false;
             collision.transform.Find("Death").gameObject.SetActive(true);
