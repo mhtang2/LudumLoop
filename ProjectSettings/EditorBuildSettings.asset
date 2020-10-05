@@ -17,17 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: b83cc79a686d4b84c8ada8570440e113
-<<<<<<< HEAD
-  - enabled: 0
-    path: Assets/Scenes/Useless/Matty.unity
-    guid: bd411d793f6c4fa478534e47da9a2428
-  - enabled: 0
-=======
   - enabled: 1
     path: Assets/Scenes/Useless/Matty.unity
     guid: bd411d793f6c4fa478534e47da9a2428
   - enabled: 1
->>>>>>> a98bdded888ab2f6e6b1af5595e0b06442bb58fc
     path: Assets/Scenes/Useless/Geof.unity
     guid: ae9f02821e8c2764f87e3e9024b1f9fb
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: 4770dffa56366d2408e3485641daa283
   m_configObjects: {}

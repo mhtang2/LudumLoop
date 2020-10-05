@@ -84,6 +84,9 @@ public class MainGameScript : MonoBehaviour
                 Debug.Log("test");
             }
             gameOver = true;
+
+            int maxStars = Mathf.Max(stars, PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "Stars"));
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "Stars", maxStars);
         }
     }
 
