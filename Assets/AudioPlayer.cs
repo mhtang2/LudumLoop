@@ -10,7 +10,8 @@ public class AudioPlayer : MonoBehaviour
     void Awake()
     {
         audio = GetComponent<AudioSource>();
-        audio.clip = myMusic[0] as AudioClip;
+        playRandomMusic();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
