@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BlackHoleScript : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class BlackHoleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey("Mass" + gameObject.name + SceneManager.GetActiveScene().name))
+        {
+            mass = PlayerPrefs.GetInt("Mass" + gameObject.name + SceneManager.GetActiveScene().name);
+        }
         spriteRender = MainSprite.GetComponent<SpriteRenderer>();
         UpdateColor();
         SFXsource = GetComponent<AudioSource>();
@@ -33,6 +38,7 @@ public class BlackHoleScript : MonoBehaviour
             if (mass < massHigher)
             {
                 mass += 10;
+                PlayerPrefs.SetInt("Mass" + gameObject.name + SceneManager.GetActiveScene().name, mass);
                 UpdateColor();
                 SFXsource.PlayOneShot(successSound);
             }
@@ -44,6 +50,7 @@ public class BlackHoleScript : MonoBehaviour
             if (mass > massLower)
             {
                 mass -= 10;
+                PlayerPrefs.SetInt("Mass" + gameObject.name + SceneManager.GetActiveScene().name, mass);
                 UpdateColor();
                 SFXsource.PlayOneShot(successSound);
             }
