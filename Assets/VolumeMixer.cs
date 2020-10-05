@@ -12,7 +12,7 @@ public class VolumeMixer : MonoBehaviour
     {
         float outValue;
         audioMixer.GetFloat("Master", out outValue);
-        GetComponent<Slider>().SetValueWithoutNotify(Mathf.Pow(10, outValue));
+        GetComponent<Slider>().SetValueWithoutNotify(Mathf.Pow(10, outValue/20));
     }
 
     public void SetLevel (float sliderValue)
