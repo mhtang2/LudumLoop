@@ -68,6 +68,7 @@ public class MainGameScript : MonoBehaviour
             if (loseScreen != null)
             {
                 loseScreen.SetActive(true);
+                loseScreen.transform.Find("Score").GetComponent<Text>().text="Orbits: "+score;
             }       
             gameOver = true;
         }
