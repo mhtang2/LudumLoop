@@ -45,7 +45,7 @@ public class PlayerSpawner : MonoBehaviour
             {
                 tick = 0;
                 GameObject newPlayer;
-                (newPlayer= Instantiate(planetToSpawn, transform)).transform.localPosition = new Vector3(0, 0, 0);
+                (newPlayer= Instantiate(planetToSpawn, transform)).transform.localPosition = new Vector3(0, 0, 0 - amountThrown);
                 newPlayer.GetComponent<PlanetScript>().vi = thrownVelocity;
                 amountThrown++;
                 if (amountThrown >= amount)

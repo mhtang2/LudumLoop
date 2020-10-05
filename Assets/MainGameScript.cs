@@ -16,8 +16,12 @@ public class MainGameScript : MonoBehaviour
 
     private int score=0;
     private Text scoreText;
+    private bool gameOver = false;
     private GameObject starContainer;
     public GameObject loseScreen;
+    public GameObject restartButton;
+    public GameObject startButton;
+
     private void Awake()
     {
         // if the singleton hasn't been initialized yet
@@ -35,6 +39,8 @@ public class MainGameScript : MonoBehaviour
     public void StartSpawn()
     {
         startSpawn = true;
+        restartButton.SetActive(true);
+        startButton.SetActive(false);
     }
 
     public bool IsStartSpawn()
@@ -51,16 +57,17 @@ public class MainGameScript : MonoBehaviour
     public void KillPlanet()
     {
         totalPlanet--;
-        if (totalPlanet <= 0)
+        if (totalPlanet <= 0 && gameOver != true)
         {
             loseScreen.SetActive(true);
+            gameOver = true;
         }
     }
     public void IncrementScore(int ds) {
         score += ds;
         scoreText.text = score + "/" + goalScore;
         
-        if (score == goalScore)
+        if (score == goalScore && gameOver != true)
         {
             GameObject.Find("Canvas").transform.Find("EndGame").gameObject.SetActive(true);
             for (int i = stars; i < 3; i++)
@@ -68,10 +75,17 @@ public class MainGameScript : MonoBehaviour
                 GameObject.Find("Full Star " + i).SetActive(false);
                 Debug.Log("test");
             }
+            gameOver = true;
         }
     }
+
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LevelButton()
+    {
+        SceneManager.LoadScene("LevelSelect");
     }
 }

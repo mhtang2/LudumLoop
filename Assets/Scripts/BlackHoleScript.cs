@@ -19,6 +19,11 @@ public class BlackHoleScript : MonoBehaviour
     }
     void OnMouseOver()
     {
+        if (MainGameScript.Instance.IsStartSpawn())
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(1)) {
             if (mass < massHigher)
             {
