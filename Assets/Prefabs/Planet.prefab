@@ -148,6 +148,9 @@ MonoBehaviour:
   completedOrbits: 0
   test: 0
   spriteRender: {fileID: 4891172746487107860}
+  successSound: {fileID: 8300000, guid: 7ea2976ecc791bf48a8c6556f98ad1da, type: 3}
+  errorSound: {fileID: 8300000, guid: a454d0786456f38429e65c8021708975, type: 3}
+  audioSource: {fileID: 0}
 --- !u!50 &4125091859357167690
 Rigidbody2D:
   serializedVersion: 4

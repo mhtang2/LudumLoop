@@ -22,6 +22,8 @@ public class PlanetScript : MonoBehaviour
     public double test;
     public SpriteRenderer spriteRender;
     private TrailRenderer trailRender;
+   
+
     void Start()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

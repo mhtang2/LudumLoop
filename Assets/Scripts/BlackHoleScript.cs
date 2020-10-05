@@ -11,11 +11,16 @@ public class BlackHoleScript : MonoBehaviour
     private int massLower = 0, massHigher = 200;
     private float hueLower = 0.666666f, hueHigher = 0.833333f;
     private float lightLower = 0.2f, lightHigher = 0.6f;
+
+    public AudioClip successSound;
+    public AudioClip errorSound;
+    private AudioSource SFXsource;
     // Start is called before the first frame update
     void Start()
     {
         spriteRender = MainSprite.GetComponent<SpriteRenderer>();
         UpdateColor();
+        SFXsource = GetComponent<AudioSource>();
     }
     void OnMouseOver()
     {
@@ -29,6 +34,10 @@ public class BlackHoleScript : MonoBehaviour
             {
                 mass += 10;
                 UpdateColor();
+                SFXsource.PlayOneShot(successSound);
+            }
+            else {
+                SFXsource.PlayOneShot(errorSound);
             }
         }
         if (Input.GetMouseButtonDown(0)) {
@@ -36,6 +45,10 @@ public class BlackHoleScript : MonoBehaviour
             {
                 mass -= 10;
                 UpdateColor();
+                SFXsource.PlayOneShot(successSound);
+            }
+            else {
+                SFXsource.PlayOneShot(errorSound);
             }
         }
     }
