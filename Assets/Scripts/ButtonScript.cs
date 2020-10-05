@@ -41,7 +41,7 @@ public class ButtonScript : MonoBehaviour
 
     public void LoadLevel(int index)
     {
-        PlayerPrefs.SetInt("LevelScrollValue", (int) GameObject.Find("Text").transform.position.x);
+        PlayerPrefs.SetInt("LevelScrollValue", (int)GameObject.Find("Text").transform.position.x);
         SceneManager.LoadScene(index);
     }
 }
