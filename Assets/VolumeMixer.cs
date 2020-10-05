@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class VolumeMixer : MonoBehaviour
 {
     public AudioMixer audioMixer;
+
+    public void Awake()
+    {
+        float outValue;
+        audioMixer.GetFloat("Master", out outValue);
+        GetComponent<Slider>().SetValueWithoutNotify(Mathf.Pow(10, outValue));
+    }
 
     public void SetLevel (float sliderValue)
     {
