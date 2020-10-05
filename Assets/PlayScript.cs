@@ -20,4 +20,7 @@ public class PlayScript : MonoBehaviour
         SceneManager.LoadScene("LevelSelect");
         //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
+    public void GoBack(string componentTarget) {
+        SceneManager.LoadScene(componentTarget);
+    }
 }
