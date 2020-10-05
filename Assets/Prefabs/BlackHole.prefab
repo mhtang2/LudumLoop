@@ -4899,7 +4899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainSprite: {fileID: 8685563961993976575}
-  mass: 0
+  mass: 100
 --- !u!1 &8685563961993976575
 GameObject:
   m_ObjectHideFlags: 0
