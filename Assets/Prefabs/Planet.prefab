@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 1
-  vi: {x: 0, y: 5, z: 0}
   G: 1
+  v: {x: 0, y: 0}
   completedOrbits: 0
   test: 0
   spriteRender: {fileID: 4891172746487107860}
