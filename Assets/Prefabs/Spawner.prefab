@@ -4802,3 +4802,5 @@ MonoBehaviour:
     type: 3}
   delay: 1
   amount: 5
+  thrownVelocity: {x: 0, y: 0}
+  spreadDegrees: 2

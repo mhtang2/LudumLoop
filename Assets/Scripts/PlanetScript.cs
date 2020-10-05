@@ -10,9 +10,8 @@ public class PlanetScript : MonoBehaviour
     //Member variables
     private bool IsOrbited;
     public int mass;
-    public Vector2 vi;
     public float G;
-    private Vector2 v;
+    public Vector2 v;
     private Vector2 rocketVelocity;
     private List<BlackHoleDataEntry> orbitingPlanets = new List<BlackHoleDataEntry>();
     private bool[] hasOrbited;
@@ -25,7 +24,6 @@ public class PlanetScript : MonoBehaviour
     private TrailRenderer trailRender;
     void Start()
     {
-        v = vi;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         planets = GameObject.FindGameObjectsWithTag("Planet");
