@@ -7,12 +7,6 @@ using UnityEngine.SceneManagement;
 public class ButtonScript : MonoBehaviour
 {
     // Buttons poggers
-    public void startButton()
-    {
-        SceneManager.LoadScene("Matty");
-        
-    }
-
     public void OptionsButton()
     {
         SceneManager.LoadScene("Options");
@@ -44,4 +38,11 @@ public class ButtonScript : MonoBehaviour
         SceneManager.LoadScene(y + 1);
 
     }
+
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene(index);
+
+    }
+
 }
