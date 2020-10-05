@@ -69,7 +69,10 @@ public class MainGameScript : MonoBehaviour
         }
     }
     public void IncrementScore(int ds) {
-        score += ds;
+        if (!gameOver)
+        {
+            score += ds;
+        }
         scoreText.text = score + "/" + goalScore;
         
         if (score == goalScore && gameOver != true)
