@@ -56,7 +56,7 @@ public class MainGameScript : MonoBehaviour
     public void AddStar()
     {
         stars++;
-        starContainer.transform.Find("Filled" + (stars - 1)).gameObject.SetActive(true);
+        //starContainer.transform.Find("Filled" + (stars - 1)).gameObject.SetActive(true);
     }
 
     public void KillPlanet()
