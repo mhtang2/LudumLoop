@@ -14,15 +14,16 @@ public class AudioPlayer : MonoBehaviour
         audio = GetComponent<AudioSource>();
         playRandomMusic();
         DontDestroyOnLoad(this.gameObject);
-        float temp = PlayerPrefs.GetFloat("MasterMixerLevel");
-        if (temp != 0)
-        {
-            audioMixer.SetFloat("Master", temp);
-        }
     }
 
     void Start()
     {
+        float temp = PlayerPrefs.GetFloat("MasterMixerLevel");
+        if (temp != 0)
+        {
+            Debug.Log("Test");
+            audioMixer.SetFloat("Master", temp);
+        }
         audio.Play();
     }
 
