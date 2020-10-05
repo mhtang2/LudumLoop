@@ -2334,6 +2334,8 @@ MonoBehaviour:
   totalPlanet: 5
   goalScore: 15
   loseScreen: {fileID: 923557866}
+  restartButton: {fileID: 0}
+  startButton: {fileID: 0}
 --- !u!81 &1247124147
 AudioListener:
   m_ObjectHideFlags: 0
