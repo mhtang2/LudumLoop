@@ -74,7 +74,7 @@ public class MainGameScript : MonoBehaviour
         
         if (score == goalScore && gameOver != true)
         {
-            GameObject.Find("Canvas").transform.Find("EndGame").gameObject.SetActive(true);
+            GameObject.Find("LevelUICanvas").transform.Find("EndGame").gameObject.SetActive(true);
             for (int i = stars; i < 3; i++)
             {
                 GameObject.Find("Full Star " + i).SetActive(false);
