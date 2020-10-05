@@ -14,4 +14,10 @@ public class PlayScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void LevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
+        //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+    }
 }
