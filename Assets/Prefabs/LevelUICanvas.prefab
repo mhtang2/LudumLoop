@@ -197,8 +197,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: RestartLevel
+      - m_Target: {fileID: 2266870371028582089}
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -798,7 +798,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2266870371028582089}
         m_MethodName: NextLevelButton
         m_Mode: 1
         m_Arguments:
@@ -1253,8 +1253,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LevelButton
+      - m_Target: {fileID: 2266870371028582089}
+        m_MethodName: LevelSelectButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1684,6 +1684,7 @@ GameObject:
   - component: {fileID: 4432081393980918469}
   - component: {fileID: 4432081393980918468}
   - component: {fileID: 4432081393980918471}
+  - component: {fileID: 2266870371028582089}
   m_Layer: 5
   m_Name: LevelUICanvas
   m_TagString: Untagged
@@ -1774,6 +1775,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2266870371028582089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432081393980918470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b381db7c93b7094387fc0ff5bcfe254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4432081394001701510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,7 +1984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2266870371028582089}
         m_MethodName: LevelSelectButton
         m_Mode: 1
         m_Arguments:
@@ -2352,8 +2365,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: RestartLevel
+      - m_Target: {fileID: 2266870371028582089}
+        m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
