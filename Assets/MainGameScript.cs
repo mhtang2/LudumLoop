@@ -35,7 +35,7 @@ public class MainGameScript : MonoBehaviour
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         scoreText.text = score + "/" + goalScore;
 
-        Transform canvas = GameObject.Find("Canvas").transform;
+        Transform canvas = GameObject.Find("LevelUICanvas").transform;
         loseScreen = canvas.Find("LoseGame").gameObject;
         restartButton = canvas.Find("GameUI").Find("Restart").gameObject;
         startButton = canvas.Find("GameUI").Find("Play").gameObject;
