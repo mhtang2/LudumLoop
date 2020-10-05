@@ -46,6 +46,7 @@ public class MainGameScript : MonoBehaviour
         startSpawn = true;
         restartButton.SetActive(true);
         startButton.SetActive(false);
+        PlanetScript.starPitch = 1;
     }
 
     public bool IsStartSpawn()

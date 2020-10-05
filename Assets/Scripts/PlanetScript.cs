@@ -25,7 +25,7 @@ public class PlanetScript : MonoBehaviour
 
     public AudioClip starSFX;
     private AudioSource SFXsource;
-    public static float starPitch = 1;
+    public static float starPitch;
     void Start()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -135,7 +135,7 @@ public class PlanetScript : MonoBehaviour
         {
             SFXsource.pitch = starPitch;
             SFXsource.PlayOneShot(starSFX);
-            starPitch *=1.25f;
+            starPitch *=1.26f;
             MainGameScript.Instance.AddStar();
             collision.enabled = false;
             collision.transform.Find("Death").gameObject.SetActive(true);
