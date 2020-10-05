@@ -1323,7 +1323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4432081393823607276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 4432081393980918468}
   - component: {fileID: 4432081393980918471}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: LevelUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3329,7 +3329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4432081395295961573
 RectTransform:
   m_ObjectHideFlags: 0
